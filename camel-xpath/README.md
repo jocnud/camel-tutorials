@@ -1,28 +1,26 @@
-Camel Example One: Using camel+spring to copy file from one folder to another.
-========================================================================
+What are we doing ?
 
-The file is copied from the "sourceFolder" i.e.the From URI to the
-"destinationFolder" i.e. the To URI. Upon successful copy, a ".camel" 
-folder is created inside the "sourceFolder" and the file in "sourceFolder" 
-is moved into it.
+We are using XPATH to read XML files and depending upon
+the content of the file we will calling PROCESSOR methods
+to do the stuffs we want to do.
 
-To run this example, copy a file into the sourceFolder folder
-and execute the following command
+Example : person.xml
+-------------------------------------------------------
+<person>
+	<name>Shahbaz Khan</name>
+	<age>25</age>
+	<profession>
+	<type>Good</type>
+	<name>Doctor</name>
+	</profession>
+</person> 
 
-mvn exec:java -Dexec.mainClass=com.evolvus.examples.camel.fileOneSpring.App
+-------------------------------------------------------
 
+1. We will read this file by polling to folder using Apache Camel
+2. Once we get the file using path we will go to the node we want to filter upon
+   (In this case it will be <name> of <profession>)
+3. Then using Apache Camel we will switch it to different PROCESSORS. 
 
-What is happening?
-===================
-
-When using Spring with camel, the Camel context is started as soon as the 
-Spring Application context starts - there is no need to explicitly start 
-the camel context, Camel then polls the sourceFolder every 1 second to check 
-if there are any new files added to the folder, if so it copies them to the 
-destinationFolder. If the file copy is successful then the source file is moved 
-to the ".camel" folder.
-
-If the copy fails for any reason the file is moved to a ".error" folder
-is created inside sourceFolder and the file moved to it.
 
 
