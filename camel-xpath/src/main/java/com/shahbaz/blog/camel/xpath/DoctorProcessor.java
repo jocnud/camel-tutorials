@@ -12,9 +12,8 @@ public class DoctorProcessor implements Processor {
 		
 		GenericFile genericFile = (GenericFile) arg0.getIn().getBody();   
 		
-/*		String g= (String)arg0.getIn().getBody();*/
 		
-		System.out.println("-----------   "+genericFile);
+		System.out.println("  -----------   "+genericFile);
 	}
 
 }
